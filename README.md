@@ -1,10 +1,10 @@
 # AI-Powered search tool for PubMed
 
 ## 1. Overview
-**Product Name:** PubMed AI
+**Product Name:** ScholarSearch
 
 **Description:**  
-PubMed AI is a search tool designed to enhance the PubMed search experience through AI summarization and an interactive chat interface. This application allows users to efficiently discover, understand, and engage with medical literature.
+ScholarSearch is a search tool designed to enhance the PubMed search experience through AI summarization and an interactive chat interface. This application allows users to efficiently discover, understand, and engage with medical literature.
 
 **Purpose:**  
 To streamline the process of discovering and understanding research papers, saving researchers, students, and professionals time while improving insight extraction.
@@ -44,8 +44,7 @@ To streamline the process of discovering and understanding research papers, savi
 ## 5. Tools & Tech Stack
 ### **Backend:**
 - **Framework:** FastAPI (Python) for API development.  
-- **LLM Integration:** Cohere for AI-powered summarization and chat functionality.  
-- **Database:** Supabase PostgreSQL for persistent data storage.  
+- **LLM Integration:** GPT4o for AI-powered summarization and chat functionality.  
 - **Caching:** Redis for temporary storage of frequently queried data. (To Be Implemented)  
 - **PubMed API:** To fetch research metadata, abstracts, and full-text links.  
 
@@ -67,3 +66,47 @@ To streamline the process of discovering and understanding research papers, savi
 2. Backend fetches the paper’s abstract or full text (if available).  
 3. GPT4o processes the document to create embeddings stored in Pinecone/Qdrant.  
 4. User asks questions; backend retrieves relevant content  
+
+---
+
+## 7. Installation Instructions
+To set up and run the application locally, follow these steps:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/pvelleleth/ScholarSearch.git
+   cd ScholarSearch
+   ```
+
+2. **Set Up Environment Variables**:
+   - Create a `.env` file in the root of the backend directory and add your OpenAI API key:
+     ```plaintext
+     OPENAI_API_KEY=your_openai_api_key_here
+     ```
+
+3. **Install Backend Dependencies**:
+   - Navigate to the backend directory and install the required packages:
+   ```bash
+   cd backend
+   pip install -r requirements.txt
+   ```
+
+4. **Run the FastAPI Server**:
+   ```bash
+   uvicorn main:app --reload
+   ```
+
+5. **Install Frontend Dependencies**:
+   - Open a new terminal, navigate to the frontend directory, and install the required packages:
+   ```bash
+   cd frontend/scholarfront
+   npm install
+   ```
+
+6. **Start the Frontend Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+7. **Access the Application**:
+   - Open your web browser and go to `http://localhost:3000` to access the application.
